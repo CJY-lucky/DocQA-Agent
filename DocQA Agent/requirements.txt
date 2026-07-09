@@ -1,0 +1,32 @@
+# DocQA Agent 依赖
+
+# LLM
+openai>=1.0.0
+
+# 向量检索 (FAISS)
+faiss-cpu>=1.7.0
+
+# 嵌入模型
+sentence-transformers>=2.2.0
+
+# 文本分块
+langchain>=0.1.0
+langchain-text-splitters>=0.2.0
+
+# BM25 检索
+rank-bm25>=0.2.2
+
+# CLI
+click>=8.0.0
+
+# 配置
+pyyaml>=6.0
+
+# Token 计数
+tiktoken>=0.5.0
+
+# 数值计算
+numpy>=1.21.0
+
+# 终端美化
+rich>=13.0.0

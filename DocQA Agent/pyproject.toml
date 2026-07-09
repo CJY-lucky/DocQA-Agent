@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "docqa-agent"
+version = "0.1.0"
+description = "基于 LLM 的项目文档智能问答系统"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0.0",
+    "chromadb>=0.4.0",
+    "sentence-transformers>=2.2.0",
+    "langchain>=0.1.0",
+    "langchain-text-splitters>=0.2.0",
+    "rank-bm25>=0.2.2",
+    "click>=8.0.0",
+    "pyyaml>=6.0",
+    "tiktoken>=0.5.0",
+    "numpy>=1.21.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]

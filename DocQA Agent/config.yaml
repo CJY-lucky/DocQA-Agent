@@ -1,0 +1,36 @@
+# ============================================================
+# DocQA Agent 配置文件
+# ============================================================
+
+llm:
+  provider: "openai"              # openai | ollama | custom
+  model: "qwen3.7-max"            # 使用的模型名称
+  api_key: "${DASHSCOPE_API_KEY}"                  # API Key，支持环境变量
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  temperature: 0.1
+  max_tokens: 1024
+
+embedding:
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+  device: "cpu"                   # cpu | cuda
+
+retrieval:
+  top_k: 5                        # 每次检索返回的片段数
+  vector_weight: 0.5              # 向量检索权重
+  bm25_weight: 0.5               # BM25 检索权重
+
+index:
+  persist_dir: "./data/faiss"     # FAISS 向量存储目录
+  chunk_size: 500                 # 文本分块大小（字符数）
+  chunk_overlap: 50               # 分块重叠大小
+
+agent:
+  max_iterations: 5               # Agent 最大迭代次数
+  confidence_threshold: 60        # 置信度阈值（0-100），低于此值会追问
+  max_history: 10                 # 保留最近 N 轮对话历史
+
+scan:
+  extensions:                     # 扫描的文件扩展名
+    - ".md"
+    - ".txt"
+    - ".py"
